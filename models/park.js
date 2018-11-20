@@ -20,12 +20,12 @@ Park.prototype.removeDinosaur = function (dinosaur) {
 };
 
 Park.prototype.mostPopularDinosaur = function () {
-  let mostPopular = "";
+  let mostPopular;
   let visitors = 0;
   for (const dino of this.dinosaurs){
     if (dino.guestsAttractedPerDay > visitors){
-      visitors = dino.guestsAttractedPerDay;
       mostPopular = dino;
+      visitors = dino.guestsAttractedPerDay;
     }
   }
   return mostPopular;
@@ -50,6 +50,16 @@ Park.prototype.removeDinosaurSpecies = function (species) {
   }
  };
 
+// Park.prototype.removeDinosaurSpecies = function (species) {
+//   dinoArray = []
+//   for (dino in this.dinosaurs) {
+//     if (dino.species != species){
+//       dinoArray.push(dino);
+//     }
+//   }
+//   this.dinosaurs = dinoArray;
+//  };
+
  Park.prototype.showDinoDiets = function () {
    const diet = {
      carnivore: 0,
@@ -64,8 +74,7 @@ Park.prototype.removeDinosaurSpecies = function (species) {
        diet.omnivore += 1;}
     else if (dino.diet === 'herbivore'){
       diet.herbivore += 1;}
-
-       }
+    }
      return diet
   };
 

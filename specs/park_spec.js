@@ -41,8 +41,10 @@ describe('Park', function() {
     park.addDinosaur(dinosaur);
     park.addDinosaur(dinosaur2);
     park.removeDinosaur(dinosaur2);
-    const actual = park.dinosaurs[0].species
-    assert.strictEqual(actual, 'T Rex')
+    const actual_species = park.dinosaurs[0].species;
+    assert.strictEqual(actual_species, 'T Rex');
+    const actual_length = park.dinosaurs.length;
+    assert.strictEqual(actual_length, 1);
   });
 
   it('should be able to find the dinosaur that attracts the most visitors', function () {
@@ -56,7 +58,7 @@ describe('Park', function() {
     park.addDinosaur(dinosaur);
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    const actual = park.allDinosaursSpecies('T Rex').length
+    const actual = park.allDinosaursSpecies('T Rex').length;
     assert.strictEqual(actual, 2)
   });
 
@@ -64,21 +66,24 @@ describe('Park', function() {
     park.addDinosaur(dinosaur);
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    park.removeDinosaurSpecies('T Rex')
-    const actual = park.dinosaurs.length
-    assert.strictEqual(actual, 1)
+    park.removeDinosaurSpecies('T Rex');
+    const actual_length = park.dinosaurs.length;
+    assert.strictEqual(actual_length, 1)
+    const actual_species = park.dinosaurs[0].species;
+    assert.strictEqual(actual_species, 'Stegathingy')
   });
 
   it('should be able to provide number of dinosaurs by diet type', function () {
     park.addDinosaur(dinosaur);
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    const actual = park.showDinoDiets()
-    assert.deepStrictEqual(actual, {
+    const actual = park.showDinoDiets();
+    const expected = {
       carnivore: 2,
       omnivore:  0,
       herbivore: 1
-    } )
+    };
+    assert.deepStrictEqual(actual, expected )
   } );
 
   it('should be able to calculate the total number of visitors per day', function () {
@@ -101,10 +106,6 @@ describe('Park', function() {
     const actual = park.ticketCashPerYear()
     assert.strictEqual(actual, 3668250)
   });
-
-
-
-
 
 
 });

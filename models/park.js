@@ -50,5 +50,53 @@ Park.prototype.removeDinosaurSpecies = function (species) {
   }
  };
 
+ Park.prototype.showDinoDiets = function () {
+   const diet = {
+     carnivore: 0,
+     omnivore:  0,
+     herbivore: 0
+   }
+
+   for (dino of this.dinosaurs){
+     if (dino.diet === 'carnivore'){
+       diet.carnivore += 1;}
+     else if (dino.diet === 'omnivore'){
+       diet.omnivore += 1;}
+    else if (dino.diet === 'herbivore'){
+      diet.herbivore += 1;}
+
+       }
+     return diet
+  };
+
+  Park.prototype.visitorsPerDay = function () {
+    let visitors = 0;
+    for (dino of this.dinosaurs){
+      visitors += dino.guestsAttractedPerDay;
+    }
+    return visitors
+  };
+
+  // Park.prototype.visitorsPerYear = function () {
+  //   let visitors = (this.visitorsPerDay)
+  //   return visitors
+  // };
+
+  Park.prototype.visitorsPerYear = function () {
+    let visitors = 0;
+    for (dino of this.dinosaurs){
+      visitors += dino.guestsAttractedPerDay;
+    }
+    return (visitors * 365)
+  };
+
+  Park.prototype.ticketCashPerYear = function () {
+    let visitors = 0;
+    for (dino of this.dinosaurs){
+      visitors += dino.guestsAttractedPerDay;
+    }
+    return (visitors * 365 * 50)
+  };
+
 
 module.exports = Park;

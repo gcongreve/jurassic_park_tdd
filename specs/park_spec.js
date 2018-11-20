@@ -69,4 +69,42 @@ describe('Park', function() {
     assert.strictEqual(actual, 1)
   });
 
+  it('should be able to provide number of dinosaurs by diet type', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.showDinoDiets()
+    assert.deepStrictEqual(actual, {
+      carnivore: 2,
+      omnivore:  0,
+      herbivore: 1
+    } )
+  } );
+
+  it('should be able to calculate the total number of visitors per day', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    const actual = park.visitorsPerDay()
+    assert.strictEqual(actual, 201)
+  });
+
+  it('should be able to calculate the total number of visitors per year', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    const actual = park.visitorsPerYear()
+    assert.strictEqual(actual, 73365)
+  });
+
+  it('should be able to calculate the total ticket cash per year', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    const actual = park.ticketCashPerYear()
+    assert.strictEqual(actual, 3668250)
+  });
+
+
+
+
+
+
 });

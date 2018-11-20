@@ -42,7 +42,13 @@ Park.prototype.allDinosaursSpecies = function (species) {
   return dinoSpecies;
 };
 
-
+Park.prototype.removeDinosaurSpecies = function (species) {
+  for (let i = 0; i < this.dinosaurs.length; i++) {
+    if (this.dinosaurs[i].species === species){
+      this.dinosaurs.splice(i, 1);
+    }
+  }
+ };
 
 
 module.exports = Park;

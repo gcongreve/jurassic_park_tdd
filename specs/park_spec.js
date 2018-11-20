@@ -60,6 +60,13 @@ describe('Park', function() {
     assert.strictEqual(actual, 2)
   });
 
-  it('should be able to remove all dinosaurs of a particular species');
+  it('should be able to remove all dinosaurs of a particular species', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    park.removeDinosaurSpecies('T Rex')
+    const actual = park.dinosaurs.length
+    assert.strictEqual(actual, 1)
+  });
 
 });

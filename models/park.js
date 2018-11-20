@@ -77,25 +77,16 @@ Park.prototype.removeDinosaurSpecies = function (species) {
     return visitors
   };
 
-  // Park.prototype.visitorsPerYear = function () {
-  //   let visitors = (this.visitorsPerDay)
-  //   return visitors
-  // };
 
   Park.prototype.visitorsPerYear = function () {
-    let visitors = 0;
-    for (dino of this.dinosaurs){
-      visitors += dino.guestsAttractedPerDay;
-    }
-    return (visitors * 365)
+    const visitors = (this.visitorsPerDay() * 365)
+    return visitors
   };
 
+
   Park.prototype.ticketCashPerYear = function () {
-    let visitors = 0;
-    for (dino of this.dinosaurs){
-      visitors += dino.guestsAttractedPerDay;
-    }
-    return (visitors * 365 * 50)
+    const cash =  (this.visitorsPerYear() * this.ticketPrice)
+    return cash
   };
 
 
